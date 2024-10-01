@@ -1,3 +1,8 @@
-.app{
+/* .app{
     @apply w-screen min-h-screen
+} */
+
+body::-webkit-scrollbar {
+  display: none;
 }
+

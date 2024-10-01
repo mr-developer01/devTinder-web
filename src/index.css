@@ -1,5 +1,9 @@
-@import url('./app.css');
+@import url("./app.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}

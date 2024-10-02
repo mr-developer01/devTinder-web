@@ -1,8 +1,28 @@
-import React, { useRef } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/userSlice";
 
 const Login = () => {
-  const userEmail = useRef();
-  const userPassword = useRef();
+  const [emailId, setEmailId] = useState("rahul@gmail.com");
+  const [password, setPassword] = useState("Rahul@123");
+  const dispatch = useDispatch();
+
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/login",
+        {
+          emailId,
+          password,
+        },
+        { withCredentials: true }
+      );
+      dispatch(addUser(res.data));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="h-[90vh] flex items-center justify-center max-lg:w-full">
@@ -13,10 +33,8 @@ const Login = () => {
               <span className="label-text ">Enter Your Email</span>
             </div>
             <input
-              value={userEmail.current}
-              onChange={(e) => {
-                userEmail.current = e.target.value;
-              }}
+              value={emailId}
+              onChange={(e) => setEmailId(e.target.value)}
               type="text"
               placeholder="Eamil@gmail.com"
               className="input input-bordered w-full max-w-xs rounded-md text-black"
@@ -27,17 +45,18 @@ const Login = () => {
               <span className="label-text ">Enter Your Password</span>
             </div>
             <input
-              value={userPassword.current}
-              onChange={(e) => {
-                userPassword.current = e.target.value;
-              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder="Password@123"
               className="input input-bordered w-full max-w-xs rounded-md text-black"
             />
           </label>
           <div className="card-actions justify-end mt-[2vh]">
-            <button className="btn btn-warning rounded-md px-[2vw]">
+            <button
+              onClick={handleLogin}
+              className="btn btn-warning rounded-md px-[2vw]"
+            >
               Login
             </button>
           </div>

@@ -29,11 +29,11 @@ const Login = () => {
       });
       return navigate("/feed");
     } catch (error) {
-      toast.error("Something went wrong!", {
+      toast.error(error?.response?.data, {
         position: "top-center",
         autoClose: 3000,
       });
-      console.log(error.message);
+      console.log(error);
     }
   };
 

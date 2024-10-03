@@ -3,7 +3,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { addUser } from "../store/userSlice";
+import { removeUser } from "../store/userSlice";
 import { BASE_URL } from "../utils/constant";
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
         {},
         { withCredentials: true }
       );
-      dispatch(addUser(null));
+      dispatch(removeUser());
       toast.success(res.data || "Logged out successfully!", {
         position: "top-center",
         autoClose: 3000,

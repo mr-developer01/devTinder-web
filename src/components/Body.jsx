@@ -13,7 +13,6 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  console.log(userData, "cheking userData from body!!");
 
   const fetchUser = async () => {
     if (userData) return;
@@ -23,9 +22,10 @@ const Body = () => {
         const res = await axios.get(BASE_URL + "profile/view", {
           withCredentials: true,
         });
-        console.log(res, "Comming from body!!");
         dispatch(addUser(res.data));
         navigate("/feed");
+      }else{
+        navigate("/")
       }
     } catch (error) {
       if (error.status === 401) {

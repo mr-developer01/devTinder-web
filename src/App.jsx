@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 
 const App = () => {
+  
   return (
     <>
       <BrowserRouter basename="/">

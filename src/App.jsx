@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Body from "./components/Body";
 import Login from "./components/Login";
 import Feed from "./components/Feed";
@@ -8,7 +8,6 @@ import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 
 const App = () => {
-  
   return (
     <>
       <BrowserRouter basename="/">

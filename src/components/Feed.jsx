@@ -22,10 +22,8 @@ const Feed = () => {
       dispatch(addFeed(res?.data?.data));
 
     } catch (error) {
-      toast.error("Something went wrong", {
-        position: "top-center",
-        autoClose: 3000,
-      });
+      console.log(error);
+      
     }
   };
 
@@ -42,8 +40,8 @@ const Feed = () => {
   }
 
   return (
-    <div className="w-full h-[95vh] flex justify-center items-start mt-[15vh]">
-      <UserCard feed={feed[0]} />
+    <div className="w-full flex justify-center items-start my-[15vh]">
+      <UserCard feed={feed} />
     </div>
   );
 };

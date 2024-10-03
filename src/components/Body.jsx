@@ -18,15 +18,11 @@ const Body = () => {
     if (userData) return;
 
     try {
-      if (document.cookie) {
-        const res = await axios.get(BASE_URL + "profile/view", {
-          withCredentials: true,
-        });
-        dispatch(addUser(res.data));
-        navigate("/feed");
-      }else{
-        navigate("/")
-      }
+      const res = await axios.get(BASE_URL + "profile/view", {
+        withCredentials: true,
+      });
+      dispatch(addUser(res.data));
+      navigate("/feed");
     } catch (error) {
       if (error.status === 401) {
         navigate("/");

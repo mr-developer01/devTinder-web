@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../store/userSlice";
 import { BASE_URL } from "../utils/constant";
+import { removeFeed } from "../store/feedSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -19,6 +20,7 @@ const Navbar = () => {
         { withCredentials: true }
       );
       dispatch(removeUser());
+      dispatch(removeFeed())
       toast.success(res.data || "Logged out successfully!", {
         position: "top-center",
         autoClose: 3000,

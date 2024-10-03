@@ -1,18 +1,23 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import EditProfile from "./EditProfile";
 
 const Profile = () => {
-  const user = useSelector(store => store.user)
-  const navigate = useNavigate()
+  const user = useSelector((store) => store.user);
+  const navigate = useNavigate();
 
-  if(!user){
-    navigate("/")
-  }
-  
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
+
   return (
-    <div>Profile</div>
-  )
-}
+    <div className="py-[4vh]">
+      <EditProfile user={user?.loginUser} />
+    </div>
+  );
+};
 
-export default Profile
+export default Profile;

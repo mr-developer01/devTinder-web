@@ -5,7 +5,7 @@ const UserCard = ({ feed }) => {
   return (
     <div className="flex gap-6 max-lg:flex-col">
       {feed.map((data) => (
-        <div key={data._id} className="card bg-base-100 w-96 shadow-xl rounded-2xl">
+        <div key={data._id} className="card bg-[#FFF248] w-96 shadow-xl rounded-2xl">
           <figure className="w-full">
             <img src={data?.photoUrl} alt="userPic" className="w-[6vw]" />
           </figure>

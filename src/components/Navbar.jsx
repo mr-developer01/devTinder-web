@@ -44,8 +44,8 @@ const Navbar = () => {
         </div>
         {user ? (
           <div className="flex gap-[1vw]">
-            <p className="select-none text-[1vw] font-semibold max-lg:text-[2.4vw]">
-              Welcome, {user.loginUser.firstName} {user.loginUser.lastName}
+            <p className="select-none text-[.9vw] font-light max-lg:text-[2.4vw]">
+              {user.loginUser.firstName} {user.loginUser.lastName}
             </p>
             <div className="flex-none gap-2">
               <div className="dropdown dropdown-end">
@@ -68,7 +68,7 @@ const Navbar = () => {
                   <li>
                     <Link to="/profile" className="justify-between">
                       Profile
-                      <span className="badge">New</span>
+                      <span className="badge">Update</span>
                     </Link>
                   </li>
                   <li>

@@ -6,6 +6,9 @@ export default {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["cyberpunk"],
+    themes: ["wireframe"],
   },
 };
+
+
+// wireframe

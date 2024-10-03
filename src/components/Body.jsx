@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import Navbar from "./Navbar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -13,6 +13,7 @@ const Body = () => {
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const fetchUser = async () => {
     if (userData) return;
@@ -22,7 +23,9 @@ const Body = () => {
         withCredentials: true,
       });
       dispatch(addUser(res.data));
-      navigate("/feed");
+      if (location.pathname === "/") {
+        navigate("/feed");
+      }
     } catch (error) {
       if (error.status === 401) {
         navigate("/");

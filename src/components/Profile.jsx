@@ -5,17 +5,18 @@ import EditProfile from "./EditProfile";
 
 const Profile = () => {
   const user = useSelector((store) => store.user);
-  const navigate = useNavigate();
+  
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   return (
     <div className="py-[4vh]">
-      <EditProfile user={user?.loginUser} />
+      {user && <EditProfile user={user?.loginUser} />}
     </div>
   );
 };

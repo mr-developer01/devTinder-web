@@ -22,6 +22,9 @@ const Login = () => {
         },
         { withCredentials: true }
       );
+      
+      console.log(res);
+      
       dispatch(addUser(res.data));
       toast.success(res.data.message || "Login successfully!", {
         position: "top-center",

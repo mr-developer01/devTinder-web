@@ -1,0 +1,4 @@
+.bg-c{
+    @apply bg-red-400;
+    color: blue;
+}

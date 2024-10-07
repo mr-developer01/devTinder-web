@@ -7,6 +7,7 @@ import { removeUser } from "../store/userSlice";
 import { BASE_URL } from "../utils/constant";
 import { removeFeed } from "../store/feedSlice";
 import { removeConnection } from "../store/connectionSlice";
+import { removeRequest } from "../store/requestSlice";
 
 const Navbar = () => {
   
@@ -24,6 +25,7 @@ const Navbar = () => {
       dispatch(removeUser());
       dispatch(removeFeed())
       dispatch(removeConnection())
+      dispatch(removeRequest())
       toast.success(res.data || "Logged out successfully!", {
         position: "top-center",
         autoClose: 3000,
@@ -79,6 +81,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link to="/connections">Connections</Link>
+                  </li>
+                  <li>
+                    <Link to="/requests">Requests</Link>
                   </li>
                   <li>
                     <Link onClick={handleLogout}>Logout</Link>

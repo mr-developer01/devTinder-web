@@ -32,11 +32,11 @@ const Login = () => {
       });
       return navigate("/feed");
     } catch (error) {
-      toast.error(error?.response?.data, {
+      toast.error(error.message, {
         position: "top-center",
         autoClose: 3000,
       });
-      console.log(error);
+      console.log(error.message);
     }
   };
 

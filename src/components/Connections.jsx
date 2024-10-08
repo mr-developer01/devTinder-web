@@ -28,7 +28,12 @@ const Connections = () => {
     );
   }
 
-  if (connections.length === 0) <h1>No connection yet!!</h1>;
+  if (connections.length === 0)
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <h1>No connection yet!!</h1>
+      </div>
+    );
 
   return (
     <div className="w-full min-h-screen pt-[8vh] pb-[4vh] px-[4vw] flex flex-col items-center gap-[2vh] max-lg:h-fit">
@@ -49,9 +54,7 @@ const Connections = () => {
               <p>
                 {connection.age} {connection.gender}
               </p>
-              <p className="">
-                {connection.about}
-              </p>
+              <p className="">{connection.about}</p>
               <div className="card-actions justify-start">
                 <button className="bg-gray-500 text-white px-[1vw] py-[.8vh] rounded-md">
                   remove

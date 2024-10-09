@@ -18,7 +18,7 @@ const UserCard = ({ feed }) => {
       );
 
       dispatch(removeUserFromFeed(id));
-      toast.success(res.data.message || "connection updated successfully!", {
+      toast.success(status, {
         position: "top-center",
         autoClose: 3000,
       });

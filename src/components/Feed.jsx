@@ -3,11 +3,11 @@ import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../store/feedSlice";
-import { toast } from "react-toastify";
 import Shimmer from "./Shimmer";
 import UserCard from "./UserCard";
 
 const Feed = () => {
+  
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
 
